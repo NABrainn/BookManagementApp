@@ -5,5 +5,7 @@ module gui.bookmanagement {
 
 
     opens app.bookmanagement to javafx.fxml;
+    opens app.bookmanagement.domain to javafx.fxml;
     exports app.bookmanagement;
+    exports app.bookmanagement.domain;
 }
