@@ -8,14 +8,7 @@ public class Book {
     private String author;
     private String genre;
     private int year;
-    private int ID;
-
-    public Book(String title, String author, String genre, int year) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.year = year;
-    }
+    private int id;
 
     public String getTitle() {
         return title;
@@ -41,12 +34,12 @@ public class Book {
         this.genre = genre;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getYear() {
@@ -61,12 +54,12 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return year == book.year && ID == book.ID && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(genre, book.genre);
+        return year == book.year && id == book.id && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(genre, book.genre);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, genre, year, ID);
+        return Objects.hash(title, author, genre, year, id);
     }
 
     public String toString() {
