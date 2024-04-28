@@ -22,10 +22,14 @@
 
 .text-field {
     -fx-faint-focus-color: RGB(94, 94, 94);
-    -fx-focus-color: RGB(94, 94, 94);
+
 }
 
 .table-view {
-    -fx-faint-focus-color: RGB(94, 94, 94);
     -fx-focus-color: RGB(94, 94, 94);
+    -fx-selection-bar: RGB(213, 219, 217);
+}
+
+#errorTitle, #errorAuthor, #errorGenre, #errorYear {
+    -fx-text-fill: "red";
 }
