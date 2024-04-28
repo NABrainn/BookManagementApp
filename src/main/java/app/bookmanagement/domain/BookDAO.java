@@ -12,10 +12,10 @@ public class BookDAO implements DAO<Book> {
     static Connection con = DatabaseConnection.getConnection();
 
     @Override
-    public Book findById(Long id) throws SQLException {
-        String query = "select * from books where ID=?";
+    public Book findByTitle(String title) throws SQLException {
+        String query = "select * from books where title=?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setLong(1, id);
+        ps.setString(1, title);
         Book book = new Book();
         ResultSet rs = ps.executeQuery();
         boolean check = false;
@@ -23,7 +23,7 @@ public class BookDAO implements DAO<Book> {
         while(rs.next()) {
             check = true;
 
-            book.setTitle(rs.getString("name"));
+            book.setTitle(rs.getString("title"));
             book.setAuthor(rs.getString("author"));
             book.setGenre(rs.getString("genre"));
             book.setYear(rs.getInt("year"));
@@ -46,7 +46,7 @@ public class BookDAO implements DAO<Book> {
         while(rs.next()) {
             Book book = new Book();
 
-            book.setTitle(rs.getString("name"));
+            book.setTitle(rs.getString("title"));
             book.setAuthor(rs.getString("author"));
             book.setGenre(rs.getString("genre"));
             book.setYear(rs.getInt("year"));
@@ -58,7 +58,7 @@ public class BookDAO implements DAO<Book> {
     }
 
     @Override
-    public int add(Book book) throws SQLException {
+    public void add(Book book) throws SQLException {
         String query = "insert into books values(?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(query);
 
@@ -67,7 +67,7 @@ public class BookDAO implements DAO<Book> {
         ps.setString(3, book.getGenre());
         ps.setInt(4, book.getYear());
 
-        return ps.executeUpdate();
+        ps.executeUpdate();
     }
 
     @Override
@@ -83,11 +83,11 @@ public class BookDAO implements DAO<Book> {
     }
 
     @Override
-    public void delete(Long id) throws SQLException {
-        String query = "delete from books where id =?";
+    public void delete(String title) throws SQLException {
+        String query = "delete from books where title =?";
 
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setLong(1, id);
+        ps.setString(1, title);
         ps.execute();
     }
 }
