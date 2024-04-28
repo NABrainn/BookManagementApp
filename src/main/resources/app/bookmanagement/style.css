@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: RGB(213, 219, 217);
+    -fx-background-color: #ecfdf5;
     -fx-font-family: "Gill Sans", sans-serif;
 }
 
@@ -25,10 +25,28 @@
 
 }
 
-.table-view {
-    -fx-focus-color: RGB(94, 94, 94);
-    -fx-selection-bar: RGB(213, 219, 217);
+.table-row-cell {
+    -fx-background-color: #86efac;
 }
+
+.table-row-cell:odd {
+    -fx-background-color: #bbf7d0;
+}
+
+.table-view, .column-header {
+    -fx-focus-color: RGB(94, 94, 94);
+    -fx-background-color: #dcfce7;
+
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #34d399;
+}
+
+.table-view .column-header {
+    -fx-background-color: #bbf7d0;
+}
+
 
 #errorTitle, #errorAuthor, #errorGenre, #errorYear {
     -fx-text-fill: "red";
