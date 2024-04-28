@@ -23,36 +23,31 @@
                            <children>
                               <Label text="Title" />
                               <TextField fx:id="textTitle" />
+                              <Label fx:id="errorTitle" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="Author" />
                               <TextField fx:id="textAuthor" />
+                              <Label fx:id="errorAuthor" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="Genre" />
                               <TextField fx:id="textGenre" />
+                              <Label fx:id="errorGenre" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="Year" />
                               <TextField fx:id="textYear" />
+                              <Label fx:id="errorYear" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
-                        <Button fx:id="addBtn" minWidth="50.0" mnemonicParsing="false" onAction="#btnAdd" text="Add">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Button>
-                        <Button fx:id="delBtn" minWidth="50.0" mnemonicParsing="false" text="Delete">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </Button>
+                        <Button fx:id="addBtn" minWidth="50.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="20.0" prefWidth="50.0" text="Add" />
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -75,8 +70,20 @@
    <left>
       <VBox prefHeight="660.0" prefWidth="190.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="42.0" prefWidth="218.0" text="Regex search" />
-            <TextField prefHeight="24.0" prefWidth="131.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="218.0" text="Regex search" />
+                  <TextField prefHeight="24.0" prefWidth="131.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="205.0" text="Delete" />
+                  <TextField prefHeight="24.0" prefWidth="131.0" promptText="Title" />
+                  <Label prefHeight="16.0" prefWidth="198.0" />
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="170.0" text="Confirm" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />
