@@ -1,4 +1,4 @@
-module gui.bookmanagement {
+module app.bookmanagement {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
@@ -8,4 +8,5 @@ module gui.bookmanagement {
     opens app.bookmanagement.domain to javafx.fxml;
     exports app.bookmanagement;
     exports app.bookmanagement.domain;
+    exports app.bookmanagement.domain.FieldValidation;
 }
