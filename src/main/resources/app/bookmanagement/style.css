@@ -1,0 +1,31 @@
+.root {
+    -fx-background-color: RGB(213, 219, 217);
+    -fx-font-family: "Gill Sans", sans-serif;
+}
+
+#addBtn {
+    -fx-background-color: RGB(61, 150, 9);
+}
+
+#delBtn {
+    -fx-background-color: RGB(191, 4, 35);
+}
+
+
+.button {
+    -fx-text-fill: "white";
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.text-field {
+    -fx-faint-focus-color: RGB(94, 94, 94);
+    -fx-focus-color: RGB(94, 94, 94);
+}
+
+.table-view {
+    -fx-faint-focus-color: RGB(94, 94, 94);
+    -fx-focus-color: RGB(94, 94, 94);
+}
