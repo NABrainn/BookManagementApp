@@ -3,7 +3,6 @@ package app.bookmanagement.domain;
 import java.sql.SQLException;
 import java.util.List;
 
-
 public interface DAO<T> {
     T findByTitle(String title) throws SQLException;
     List<T> findAll() throws SQLException;

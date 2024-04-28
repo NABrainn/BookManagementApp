@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
@@ -63,7 +62,7 @@ public class BookManagementController implements Initializable {
     @FXML
     private Label errorYear;
 
-    private BookDAO db;
+    final private BookDAO db;
 
     private Command command;
 
@@ -73,10 +72,6 @@ public class BookManagementController implements Initializable {
 
     public TableView<Book> getTable() {
         return table;
-    }
-
-    public void setTable(TableView<Book> table) {
-        this.table = table;
     }
 
     public void setCommand(Command command) {
@@ -91,64 +86,32 @@ public class BookManagementController implements Initializable {
         return textAuthor;
     }
 
-    public void setTextAuthor(TextField textAuthor) {
-        this.textAuthor = textAuthor;
-    }
-
     public TextField getTextGenre() {
         return textGenre;
-    }
-
-    public void setTextGenre(TextField textGenre) {
-        this.textGenre = textGenre;
     }
 
     public TextField getTextTitle() {
         return textTitle;
     }
 
-    public void setTextTitle(TextField textTitle) {
-        this.textTitle = textTitle;
-    }
-
     public TextField getTextYear() {
         return textYear;
-    }
-
-    public void setTextYear(TextField textYear) {
-        this.textYear = textYear;
     }
 
     public Label getErrorAuthor() {
         return errorAuthor;
     }
 
-    public void setErrorAuthor(Label errorAuthor) {
-        this.errorAuthor = errorAuthor;
-    }
-
     public Label getErrorGenre() {
         return errorGenre;
-    }
-
-    public void setErrorGenre(Label errorGenre) {
-        this.errorGenre = errorGenre;
     }
 
     public Label getErrorTitle() {
         return errorTitle;
     }
 
-    public void setErrorTitle(Label errorTitle) {
-        this.errorTitle = errorTitle;
-    }
-
     public Label getErrorYear() {
         return errorYear;
-    }
-
-    public void setErrorYear(Label errorYear) {
-        this.errorYear = errorYear;
     }
 
     ObservableList<Book> initialData() throws SQLException {

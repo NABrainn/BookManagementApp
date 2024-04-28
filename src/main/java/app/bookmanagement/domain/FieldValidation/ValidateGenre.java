@@ -6,7 +6,6 @@ import app.bookmanagement.domain.Book;
 public class ValidateGenre implements Command {
     private Book book;
     private BookManagementController controller;
-
     public ValidateGenre(Book book, BookManagementController controller) {
         this.book = book;
         this.controller = controller;
