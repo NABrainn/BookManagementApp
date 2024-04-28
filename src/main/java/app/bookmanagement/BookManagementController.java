@@ -2,6 +2,7 @@ package app.bookmanagement;
 
 import app.bookmanagement.domain.Book;
 import app.bookmanagement.domain.BookDAO;
+import app.bookmanagement.domain.FieldValidation.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -64,23 +65,102 @@ public class BookManagementController implements Initializable {
 
     private BookDAO db;
 
+    private Command command;
+
     public BookManagementController() {
         this.db = new BookDAO();
     }
 
+    public TableView<Book> getTable() {
+        return table;
+    }
+
+    public void setTable(TableView<Book> table) {
+        this.table = table;
+    }
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void executeCommand(Command command) {
+        command.execute();
+    }
+
+    public TextField getTextAuthor() {
+        return textAuthor;
+    }
+
+    public void setTextAuthor(TextField textAuthor) {
+        this.textAuthor = textAuthor;
+    }
+
+    public TextField getTextGenre() {
+        return textGenre;
+    }
+
+    public void setTextGenre(TextField textGenre) {
+        this.textGenre = textGenre;
+    }
+
+    public TextField getTextTitle() {
+        return textTitle;
+    }
+
+    public void setTextTitle(TextField textTitle) {
+        this.textTitle = textTitle;
+    }
+
+    public TextField getTextYear() {
+        return textYear;
+    }
+
+    public void setTextYear(TextField textYear) {
+        this.textYear = textYear;
+    }
+
+    public Label getErrorAuthor() {
+        return errorAuthor;
+    }
+
+    public void setErrorAuthor(Label errorAuthor) {
+        this.errorAuthor = errorAuthor;
+    }
+
+    public Label getErrorGenre() {
+        return errorGenre;
+    }
+
+    public void setErrorGenre(Label errorGenre) {
+        this.errorGenre = errorGenre;
+    }
+
+    public Label getErrorTitle() {
+        return errorTitle;
+    }
+
+    public void setErrorTitle(Label errorTitle) {
+        this.errorTitle = errorTitle;
+    }
+
+    public Label getErrorYear() {
+        return errorYear;
+    }
+
+    public void setErrorYear(Label errorYear) {
+        this.errorYear = errorYear;
+    }
 
     ObservableList<Book> initialData() throws SQLException {
         return FXCollections.observableArrayList(db.findAll());
     }
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
-        author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
-        genre.setCellValueFactory(new PropertyValueFactory<Book, String>("genre"));
-        year.setCellValueFactory(new PropertyValueFactory<Book, Integer>("year"));
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        author.setCellValueFactory(new PropertyValueFactory<>("author"));
+        genre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        year.setCellValueFactory(new PropertyValueFactory<>("year"));
 
         try {
             table.setItems(initialData());
@@ -98,47 +178,26 @@ public class BookManagementController implements Initializable {
     }
 
     public void btnAdd() throws SQLException {
-
         Book book = new Book();
 
-        errorTitle.setText("");
-        errorAuthor.setText("");
-        errorGenre.setText("");
-        errorYear.setText("");
+        setCommand(new ValidateTitle(book, this));
+        executeCommand(command);
 
-        if(textTitle.getText().isEmpty()) {
-            errorTitle.setText("Empty field.");
-        }
-        if (textAuthor.getText().isEmpty()) {
-            errorAuthor.setText("Empty field.");
-        }
-        if (textGenre.getText().isEmpty()) {
-            errorGenre.setText("Empty field.");
-        }
+        setCommand(new ValidateAuthor(book, this));
+        executeCommand(command);
 
-        book.setTitle(textTitle.getText());
-        book.setAuthor(textAuthor.getText());
-        book.setGenre(textGenre.getText());
+        setCommand(new ValidateGenre(book, this));
+        executeCommand(command);
+
+        setCommand(new ValidateYear(book, this));
+        executeCommand(command);
+
         try {
-            book.setYear(Integer.parseInt(textYear.getText()));
+            db.add(book);
+        } catch (SQLException e) {
+            throw new RuntimeException("The fields might be empty / duplicate title / incorrect type in year field.");
         }
-        catch (Exception e) {
-            if (textYear.getText().isEmpty()) {
-                errorYear.setText("Empty field.");
-                throw new RuntimeException();
-            }
-            errorYear.setText("Integer value expected.");
-            throw new NumberFormatException();
-        }
-
-        textTitle.clear();
-        textAuthor.clear();
-        textGenre.clear();
-        textYear.clear();
-
-        db.add(book);
         table.setItems(initialData());
-
     }
 
     public void delBtn() throws SQLException {
