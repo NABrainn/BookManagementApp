@@ -17,7 +17,7 @@
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1017.0">
                <children>
                   <Label alignment="CENTER" prefHeight="60.0" prefWidth="159.0" text="Book Management" />
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="854.0" spacing="50.0">
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="811.0" spacing="50.0">
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                            <children>
@@ -48,6 +48,7 @@
                            </children>
                         </VBox>
                         <Button fx:id="addBtn" minWidth="50.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="20.0" prefWidth="50.0" text="Add" />
+                        <Button fx:id="delBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delBtn" prefHeight="20.0" prefWidth="70.0" text="Delete" />
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -73,15 +74,12 @@
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label alignment="CENTER" prefHeight="30.0" prefWidth="218.0" text="Regex search" />
-                  <TextField prefHeight="24.0" prefWidth="131.0" />
+                  <TextField fx:id="textSearch" prefHeight="24.0" prefWidth="131.0" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="205.0" text="Delete" />
-                  <TextField prefHeight="24.0" prefWidth="131.0" promptText="Title" />
-                  <Label prefHeight="16.0" prefWidth="198.0" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="170.0" text="Confirm" />
+                  <Label fx:id="errorDelete" prefHeight="16.0" prefWidth="198.0" />
                </children>
             </VBox>
          </children>
@@ -93,7 +91,6 @@
    <center>
       <TableView fx:id="table" prefHeight="660.0" prefWidth="972.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="title" prefWidth="186.0" text="Title" />
             <TableColumn fx:id="author" prefWidth="239.0" text="Author" />
             <TableColumn fx:id="genre" prefWidth="191.0" text="Genre" />
