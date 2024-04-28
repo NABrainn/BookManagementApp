@@ -2,7 +2,8 @@ package app.bookmanagement;
 
 import app.bookmanagement.domain.Book;
 import app.bookmanagement.domain.BookDAO;
-import app.bookmanagement.domain.DatabaseConnection;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class BookManagementController implements Initializable {
 
@@ -48,6 +52,12 @@ public class BookManagementController implements Initializable {
     private TextField textYear;
 
     @FXML
+    private TextField textDelete;
+
+    @FXML
+    private TextField textSearch;
+
+    @FXML
     private Label errorAuthor;
 
     @FXML
@@ -60,10 +70,16 @@ public class BookManagementController implements Initializable {
     private Label errorYear;
 
     @FXML
+    private Label errorDelete;
+
+    @FXML
     private Button addBtn;
 
     @FXML
     private Button delBtn;
+
+    @FXML
+    private Button btnSearch;
 
     private BookDAO db;
 
@@ -84,13 +100,20 @@ public class BookManagementController implements Initializable {
         author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         genre.setCellValueFactory(new PropertyValueFactory<Book, String>("genre"));
         year.setCellValueFactory(new PropertyValueFactory<Book, Integer>("year"));
-        id.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
 
         try {
             table.setItems(initialData());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        textSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            try {
+                regexSearch();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     public void btnAdd() throws SQLException {
@@ -135,5 +158,24 @@ public class BookManagementController implements Initializable {
         db.add(book);
         table.setItems(initialData());
 
+    }
+
+    public void delBtn() throws SQLException {
+        Book book = table.getSelectionModel().getSelectedItem();
+        db.delete(book.getTitle());
+        table.setItems(initialData());
+    }
+
+    public void regexSearch() throws SQLException {
+
+        ObservableList<Book> ls = db.findAll().stream()
+                .filter(book -> {
+                    Pattern pt = Pattern.compile(textSearch.getText());
+                    String candidate = book.getTitle();
+                    Matcher m = pt.matcher(candidate);
+                    return m.find();
+                })
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+        table.setItems(ls);
     }
 }
