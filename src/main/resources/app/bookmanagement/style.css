@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #ecfdf5;
+    -fx-background-color: #dcfce7;
     -fx-font-family: "Gill Sans", sans-serif;
 }
 
@@ -26,16 +26,18 @@
 }
 
 .table-row-cell {
-    -fx-background-color: #86efac;
+    -fx-background-color: #bbf7d0;
+
 }
 
 .table-row-cell:odd {
-    -fx-background-color: #bbf7d0;
+    -fx-background-color: #86efac;
+
 }
 
-.table-view, .column-header {
+.table-view {
     -fx-focus-color: RGB(94, 94, 94);
-    -fx-background-color: #dcfce7;
+    -fx-background-color: #bbf7d0;
 
 }
 
@@ -44,7 +46,7 @@
 }
 
 .table-view .column-header {
-    -fx-background-color: #bbf7d0;
+    -fx-background-color: #86efac;
 }
 
 
