@@ -7,8 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -36,6 +35,36 @@ public class BookManagementController implements Initializable {
     @FXML
     private TableView<Book> table;
 
+    @FXML
+    private TextField textAuthor;
+
+    @FXML
+    private TextField textGenre;
+
+    @FXML
+    private TextField textTitle;
+
+    @FXML
+    private TextField textYear;
+
+    @FXML
+    private Label errorAuthor;
+
+    @FXML
+    private Label errorGenre;
+
+    @FXML
+    private Label errorTitle;
+
+    @FXML
+    private Label errorYear;
+
+    @FXML
+    private Button addBtn;
+
+    @FXML
+    private Button delBtn;
+
     private BookDAO db;
 
     public BookManagementController() {
@@ -46,6 +75,7 @@ public class BookManagementController implements Initializable {
     ObservableList<Book> initialData() throws SQLException {
         return FXCollections.observableArrayList(db.findAll());
     }
+
 
 
     @Override
@@ -63,7 +93,47 @@ public class BookManagementController implements Initializable {
         }
     }
 
-    public void btnAdd() {
+    public void btnAdd() throws SQLException {
+
+        Book book = new Book();
+
+        errorTitle.setText("");
+        errorAuthor.setText("");
+        errorGenre.setText("");
+        errorYear.setText("");
+
+        if(textTitle.getText().isEmpty()) {
+            errorTitle.setText("Empty title field.");
+        }
+        if (textAuthor.getText().isEmpty()) {
+            errorAuthor.setText("Empty author field.");
+        }
+        if (textGenre.getText().isEmpty()) {
+            errorGenre.setText("Empty genre field.");
+        }
+
+        book.setTitle(textTitle.getText());
+        book.setAuthor(textAuthor.getText());
+        book.setGenre(textGenre.getText());
+        try {
+            book.setYear(Integer.parseInt(textYear.getText()));
+        }
+        catch (Exception e) {
+            if (textYear.getText().isEmpty()) {
+                errorYear.setText("Empty year field.");
+                throw new RuntimeException();
+            }
+            errorYear.setText("Integer value expected.");
+            throw new NumberFormatException();
+        }
+
+        textTitle.clear();
+        textAuthor.clear();
+        textGenre.clear();
+        textYear.clear();
+
+        db.add(book);
+        table.setItems(initialData());
 
     }
 }
