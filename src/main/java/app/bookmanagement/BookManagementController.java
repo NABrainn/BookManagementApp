@@ -2,8 +2,6 @@ package app.bookmanagement;
 
 import app.bookmanagement.domain.Book;
 import app.bookmanagement.domain.BookDAO;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,8 +25,6 @@ public class BookManagementController implements Initializable {
     @FXML
     private TableColumn<Book, String> genre;
 
-    @FXML
-    private TableColumn<Book, Integer> id;
 
     @FXML
     private TableColumn<Book, String> title;
@@ -52,9 +48,6 @@ public class BookManagementController implements Initializable {
     private TextField textYear;
 
     @FXML
-    private TextField textDelete;
-
-    @FXML
     private TextField textSearch;
 
     @FXML
@@ -68,18 +61,6 @@ public class BookManagementController implements Initializable {
 
     @FXML
     private Label errorYear;
-
-    @FXML
-    private Label errorDelete;
-
-    @FXML
-    private Button addBtn;
-
-    @FXML
-    private Button delBtn;
-
-    @FXML
-    private Button btnSearch;
 
     private BookDAO db;
 
@@ -126,13 +107,13 @@ public class BookManagementController implements Initializable {
         errorYear.setText("");
 
         if(textTitle.getText().isEmpty()) {
-            errorTitle.setText("Empty title field.");
+            errorTitle.setText("Empty field.");
         }
         if (textAuthor.getText().isEmpty()) {
-            errorAuthor.setText("Empty author field.");
+            errorAuthor.setText("Empty field.");
         }
         if (textGenre.getText().isEmpty()) {
-            errorGenre.setText("Empty genre field.");
+            errorGenre.setText("Empty field.");
         }
 
         book.setTitle(textTitle.getText());
@@ -143,7 +124,7 @@ public class BookManagementController implements Initializable {
         }
         catch (Exception e) {
             if (textYear.getText().isEmpty()) {
-                errorYear.setText("Empty year field.");
+                errorYear.setText("Empty field.");
                 throw new RuntimeException();
             }
             errorYear.setText("Integer value expected.");
