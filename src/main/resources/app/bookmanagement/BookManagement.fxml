@@ -9,38 +9,47 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.bookmanagement.BookManagementController">
    <top>
       <HBox prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="1017.0">
+            <HBox prefHeight="60.0" prefWidth="1017.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="159.0" text="Book Management" />
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="811.0" spacing="50.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                        <Label alignment="BASELINE_LEFT" prefHeight="56.0" prefWidth="232.0" text="Book Management">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="783.0" spacing="20.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Title" />
                               <TextField fx:id="textTitle" />
                               <Label fx:id="errorTitle" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Author" />
                               <TextField fx:id="textAuthor" />
                               <Label fx:id="errorAuthor" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Genre" />
                               <TextField fx:id="textGenre" />
                               <Label fx:id="errorGenre" prefHeight="16.0" prefWidth="101.0" />
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Year" />
                               <TextField fx:id="textYear" />
@@ -48,11 +57,14 @@
                            </children>
                         </VBox>
                         <Button fx:id="addBtn" minWidth="50.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="20.0" prefWidth="50.0" text="Add" />
-                        <Button fx:id="delBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delBtn" prefHeight="20.0" prefWidth="70.0" text="Delete" />
+                        <Button fx:id="delBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delBtn" prefHeight="24.0" prefWidth="70.0" text="Delete" />
                      </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </HBox>
                </children>
                <opaqueInsets>
