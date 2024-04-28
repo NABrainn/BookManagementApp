@@ -152,13 +152,20 @@ public class BookManagementController implements Initializable {
         setCommand(new ValidateGenre(book, this));
         executeCommand(command);
 
+
         setCommand(new ValidateYear(book, this));
         executeCommand(command);
 
         try {
-            db.add(book);
+            if(!textYear.getText().isEmpty()) {
+                db.add(book);
+                textTitle.clear();
+                textAuthor.clear();
+                textGenre.clear();
+                textYear.clear();
+            }
         } catch (SQLException e) {
-            throw new RuntimeException("The fields might be empty / duplicate title / incorrect type in year field.");
+            throw new RuntimeException("sth");
         }
         table.setItems(initialData());
     }
