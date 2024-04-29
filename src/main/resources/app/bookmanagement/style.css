@@ -1,19 +1,10 @@
 .root {
-    -fx-background-color: #dcfce7;
+    -fx-background-color: #f7fee7;
     -fx-font-family: "Gill Sans", sans-serif;
 }
 
-#addBtn {
-    -fx-background-color: RGB(61, 150, 9);
-}
-
-#delBtn {
-    -fx-background-color: RGB(191, 4, 35);
-}
-
-
 .button {
-    -fx-text-fill: "white";
+    -fx-background-color: #84cc16;
 }
 
 .button:hover {
@@ -21,32 +12,31 @@
 }
 
 .text-field {
-    -fx-faint-focus-color: RGB(94, 94, 94);
+    -fx-faint-focus-color: #d9f99d;
 
 }
 
 .table-row-cell {
-    -fx-background-color: #bbf7d0;
+    -fx-background-color: #d9f99d;
 
 }
 
 .table-row-cell:odd {
-    -fx-background-color: #86efac;
+    -fx-background-color: #bef264;
 
 }
 
 .table-view {
-    -fx-focus-color: RGB(94, 94, 94);
-    -fx-background-color: #bbf7d0;
+    -fx-background-color: #d9f99d;
 
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #34d399;
+    -fx-background-color: #84cc16;
 }
 
 .table-view .column-header {
-    -fx-background-color: #86efac;
+    -fx-background-color: #84cc16;
 }
 
 
