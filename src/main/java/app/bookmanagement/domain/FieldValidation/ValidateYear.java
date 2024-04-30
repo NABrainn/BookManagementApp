@@ -7,6 +7,7 @@ public class ValidateYear implements Command {
 
     private Book book;
     private BookManagementController controller;
+    private boolean result = false;
 
     public ValidateYear(Book book, BookManagementController controller) {
         this.book = book;
@@ -19,13 +20,15 @@ public class ValidateYear implements Command {
         if(controller.getTextYear().getText().isEmpty()) {
             controller.getErrorYear().setText("Empty field.");
         }
-        else {
-            try {
-                book.setYear(Integer.parseInt(controller.getTextYear().getText()));
-            } catch (NumberFormatException e) {
-                controller.getErrorYear().setText("Not an int.");
-                throw new NumberFormatException();
-            }
+        else if(!controller.getTextYear().getText().matches("[0-9]+")) {
+            controller.getErrorYear().setText("Not an int.");
         }
+        else {
+            result = true;
+        }
+    }
+
+    public boolean getResult() {
+        return this.result;
     }
 }

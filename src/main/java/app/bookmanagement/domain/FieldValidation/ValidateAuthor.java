@@ -4,8 +4,10 @@ import app.bookmanagement.BookManagementController;
 import app.bookmanagement.domain.Book;
 
 public class ValidateAuthor implements Command {
+
     private Book book;
     private BookManagementController controller;
+    private boolean result = false;
 
     public ValidateAuthor(Book book, BookManagementController controller) {
         this.book = book;
@@ -19,7 +21,11 @@ public class ValidateAuthor implements Command {
             controller.getErrorAuthor().setText("Empty field.");
         }
         else {
-            book.setAuthor(controller.getTextAuthor().getText());
+            result = true;
         }
+    }
+
+    public boolean getResult() {
+        return this.result;
     }
 }

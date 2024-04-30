@@ -7,6 +7,7 @@ public class ValidateTitle implements Command {
 
     private Book book;
     private BookManagementController controller;
+    private boolean result = false;
 
     public ValidateTitle(Book book, BookManagementController controller) {
         this.book = book;
@@ -24,9 +25,14 @@ public class ValidateTitle implements Command {
                 .toList().contains(controller.getTextTitle().getText()))
         {
             controller.getErrorTitle().setText("Duplicate title.");
+
         }
         else {
-            book.setTitle(controller.getTextTitle().getText());
+            result = true;
         }
+    }
+
+    public boolean getResult() {
+        return this.result;
     }
 }

@@ -4,8 +4,11 @@ import app.bookmanagement.BookManagementController;
 import app.bookmanagement.domain.Book;
 
 public class ValidateGenre implements Command {
+
     private Book book;
     private BookManagementController controller;
+    private boolean result = false;
+
     public ValidateGenre(Book book, BookManagementController controller) {
         this.book = book;
         this.controller = controller;
@@ -18,7 +21,11 @@ public class ValidateGenre implements Command {
             controller.getErrorGenre().setText("Empty field.");
         }
         else {
-            book.setGenre(controller.getTextGenre().getText());
+            result = true;
         }
+    }
+
+    public boolean getResult() {
+        return this.result;
     }
 }

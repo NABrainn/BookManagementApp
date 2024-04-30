@@ -74,14 +74,6 @@ public class BookManagementController implements Initializable {
         return table;
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
-
-    public void executeCommand(Command command) {
-        command.execute();
-    }
-
     public TextField getTextAuthor() {
         return textAuthor;
     }
@@ -114,6 +106,14 @@ public class BookManagementController implements Initializable {
         return errorYear;
     }
 
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void executeCommand(Command command) {
+        command.execute();
+    }
+
     ObservableList<Book> initialData() throws SQLException {
         return FXCollections.observableArrayList(db.findAll());
     }
@@ -142,30 +142,39 @@ public class BookManagementController implements Initializable {
 
     public void btnAdd() throws SQLException {
         Book book = new Book();
+        CommandResultList results = new CommandResultList();
 
         setCommand(new ValidateTitle(book, this));
         executeCommand(command);
+        results.add(command.getResult());
+
 
         setCommand(new ValidateAuthor(book, this));
         executeCommand(command);
+        results.add(command.getResult());
 
         setCommand(new ValidateGenre(book, this));
         executeCommand(command);
-
+        results.add(command.getResult());
 
         setCommand(new ValidateYear(book, this));
         executeCommand(command);
+        results.add(command.getResult());
 
-        try {
-            if(!textYear.getText().isEmpty()) {
-                db.add(book);
-                textTitle.clear();
-                textAuthor.clear();
-                textGenre.clear();
-                textYear.clear();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("sth");
+        results.printResults();
+
+        if(!results.getResults().contains(false)) {
+            book.setTitle(textTitle.getText());
+            book.setAuthor(textAuthor.getText());
+            book.setGenre(textGenre.getText());
+            book.setYear(Integer.parseInt(textYear.getText()));
+
+            db.add(book);
+
+            textTitle.clear();
+            textAuthor.clear();
+            textGenre.clear();
+            textYear.clear();
         }
         table.setItems(initialData());
     }
@@ -177,7 +186,6 @@ public class BookManagementController implements Initializable {
     }
 
     public void regexSearch() throws SQLException {
-
         ObservableList<Book> ls = db.findAll().stream()
                 .filter(book -> {
                     Pattern pt = Pattern.compile(textSearch.getText());
