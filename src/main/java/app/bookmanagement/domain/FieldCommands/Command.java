@@ -1,4 +1,4 @@
-package app.bookmanagement.domain.FieldValidation;
+package app.bookmanagement.domain.FieldCommands;
 
 public interface Command {
     void execute();

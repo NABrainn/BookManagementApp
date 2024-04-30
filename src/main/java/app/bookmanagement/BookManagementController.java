@@ -2,7 +2,7 @@ package app.bookmanagement;
 
 import app.bookmanagement.domain.Book;
 import app.bookmanagement.domain.BookDAO;
-import app.bookmanagement.domain.FieldValidation.*;
+import app.bookmanagement.domain.FieldCommands.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -102,6 +102,7 @@ public class BookManagementController implements Initializable {
         return errorTitle;
     }
 
+
     public Label getErrorYear() {
         return errorYear;
     }
@@ -161,7 +162,6 @@ public class BookManagementController implements Initializable {
         executeCommand(command);
         results.add(command.getResult());
 
-        results.printResults();
 
         if(!results.getResults().contains(false)) {
             book.setTitle(textTitle.getText());
@@ -171,17 +171,17 @@ public class BookManagementController implements Initializable {
 
             db.add(book);
 
-            textTitle.clear();
-            textAuthor.clear();
-            textGenre.clear();
-            textYear.clear();
+            setCommand(new ClearFields(this));
+            executeCommand(command);
         }
         table.setItems(initialData());
     }
 
     public void delBtn() throws SQLException {
         Book book = table.getSelectionModel().getSelectedItem();
-        db.delete(book.getTitle());
+        if(book != null) {
+            db.delete(book.getTitle());
+        }
         table.setItems(initialData());
     }
 

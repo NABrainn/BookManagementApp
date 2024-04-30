@@ -1,4 +1,4 @@
-package app.bookmanagement.domain.FieldValidation;
+package app.bookmanagement.domain.FieldCommands;
 
 import app.bookmanagement.BookManagementController;
 import app.bookmanagement.domain.Book;

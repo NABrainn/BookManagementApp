@@ -8,5 +8,5 @@ module app.bookmanagement {
     opens app.bookmanagement.domain to javafx.fxml;
     exports app.bookmanagement;
     exports app.bookmanagement.domain;
-    exports app.bookmanagement.domain.FieldValidation;
+    exports app.bookmanagement.domain.FieldCommands;
 }

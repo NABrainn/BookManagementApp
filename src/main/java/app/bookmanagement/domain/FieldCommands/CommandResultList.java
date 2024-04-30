@@ -1,4 +1,4 @@
-package app.bookmanagement.domain.FieldValidation;
+package app.bookmanagement.domain.FieldCommands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,4 @@ public class CommandResultList {
         return this.results;
     }
 
-    public void printResults() {
-        for(boolean result : results) {
-            System.out.println(result);
-        }
-    }
 }
