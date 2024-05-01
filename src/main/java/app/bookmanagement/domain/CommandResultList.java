@@ -1,4 +1,4 @@
-package app.bookmanagement.domain.FieldCommands;
+package app.bookmanagement.domain;
 
 import java.util.ArrayList;
 import java.util.List;
