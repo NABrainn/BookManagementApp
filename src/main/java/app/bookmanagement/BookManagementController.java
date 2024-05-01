@@ -2,6 +2,7 @@ package app.bookmanagement;
 
 import app.bookmanagement.domain.Book;
 import app.bookmanagement.domain.BookDAO;
+import app.bookmanagement.domain.CommandResultList;
 import app.bookmanagement.domain.FieldCommands.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
