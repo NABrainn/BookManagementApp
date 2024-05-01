@@ -165,10 +165,10 @@ public class BookManagementController implements Initializable {
 
 
         if(!results.getResults().contains(false)) {
-            book.setTitle(textTitle.getText());
-            book.setAuthor(textAuthor.getText());
-            book.setGenre(textGenre.getText());
-            book.setYear(Integer.parseInt(textYear.getText()));
+            book.setTitle(textTitle.getText().trim());
+            book.setAuthor(textAuthor.getText().trim());
+            book.setGenre(textGenre.getText().trim());
+            book.setYear(Integer.parseInt(textYear.getText().trim()));
 
             db.add(book);
 
