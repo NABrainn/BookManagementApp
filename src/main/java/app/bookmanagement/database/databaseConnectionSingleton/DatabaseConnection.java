@@ -1,4 +1,4 @@
-package app.bookmanagement.domain;
+package app.bookmanagement.database.databaseConnectionSingleton;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

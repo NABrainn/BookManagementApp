@@ -1,4 +1,4 @@
-package app.bookmanagement.domain;
+package app.bookmanagement.beans;
 
 import java.util.Objects;
 

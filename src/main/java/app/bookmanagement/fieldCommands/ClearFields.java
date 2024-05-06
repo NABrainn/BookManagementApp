@@ -1,7 +1,6 @@
-package app.bookmanagement.domain.FieldCommands;
+package app.bookmanagement.fieldCommands;
 
-import app.bookmanagement.BookManagementController;
-import app.bookmanagement.domain.Book;
+import app.bookmanagement.controller.BookManagementController;
 
 public class ClearFields implements Command {
 

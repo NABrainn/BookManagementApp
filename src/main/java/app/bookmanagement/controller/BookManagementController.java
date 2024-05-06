@@ -1,9 +1,9 @@
-package app.bookmanagement;
+package app.bookmanagement.controller;
 
-import app.bookmanagement.domain.Book;
-import app.bookmanagement.domain.BookDAO;
-import app.bookmanagement.domain.CommandResultList;
-import app.bookmanagement.domain.FieldCommands.*;
+import app.bookmanagement.beans.Book;
+import app.bookmanagement.database.databaseAccessObjectImplementation.BookDAO;
+import app.bookmanagement.validationResultList.CommandResultList;
+import app.bookmanagement.fieldCommands.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

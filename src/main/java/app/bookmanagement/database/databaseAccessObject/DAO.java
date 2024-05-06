@@ -1,4 +1,4 @@
-package app.bookmanagement.domain;
+package app.bookmanagement.database.databaseAccessObject;
 
 import java.sql.SQLException;
 import java.util.List;

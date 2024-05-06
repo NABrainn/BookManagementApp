@@ -1,4 +1,4 @@
-package app.bookmanagement.domain.FieldCommands;
+package app.bookmanagement.fieldCommands;
 
 public interface Command {
     void execute();

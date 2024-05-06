@@ -1,4 +1,8 @@
-package app.bookmanagement.domain;
+package app.bookmanagement.database.databaseAccessObjectImplementation;
+
+import app.bookmanagement.beans.Book;
+import app.bookmanagement.database.databaseAccessObject.DAO;
+import app.bookmanagement.database.databaseConnectionSingleton.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

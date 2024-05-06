@@ -1,4 +1,4 @@
-package app.bookmanagement.domain;
+package app.bookmanagement.validationResultList;
 
 import java.util.ArrayList;
 import java.util.List;
