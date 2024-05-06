@@ -6,7 +6,6 @@ module app.bookmanagement {
 
     opens app.bookmanagement to javafx.fxml;
     exports app.bookmanagement;
-    exports app.bookmanagement.fieldCommands;
     exports app.bookmanagement.controller;
     opens app.bookmanagement.controller to javafx.fxml;
     exports app.bookmanagement.database.databaseAccessObject;
@@ -15,8 +14,10 @@ module app.bookmanagement {
     opens app.bookmanagement.database.databaseAccessObjectImplementation to javafx.fxml;
     exports app.bookmanagement.database.databaseConnectionSingleton;
     opens app.bookmanagement.database.databaseConnectionSingleton to javafx.fxml;
-    exports app.bookmanagement.validationResultSet;
-    opens app.bookmanagement.validationResultSet to javafx.fxml;
+    exports app.bookmanagement.fieldValidation.validationResultSet;
+    opens app.bookmanagement.fieldValidation.validationResultSet to javafx.fxml;
     exports app.bookmanagement.beans;
     opens app.bookmanagement.beans to javafx.fxml;
+    exports app.bookmanagement.fieldValidation.commandImplementations;
+    exports app.bookmanagement.fieldValidation.command;
 }

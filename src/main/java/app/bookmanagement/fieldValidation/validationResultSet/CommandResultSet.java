@@ -1,4 +1,4 @@
-package app.bookmanagement.validationResultSet;
+package app.bookmanagement.fieldValidation.validationResultSet;
 
 import java.util.*;
 

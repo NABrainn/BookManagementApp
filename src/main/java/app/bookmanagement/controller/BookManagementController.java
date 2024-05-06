@@ -2,8 +2,9 @@ package app.bookmanagement.controller;
 
 import app.bookmanagement.beans.Book;
 import app.bookmanagement.database.databaseAccessObjectImplementation.BookDAO;
-import app.bookmanagement.validationResultSet.CommandResultSet;
-import app.bookmanagement.fieldCommands.*;
+import app.bookmanagement.fieldValidation.command.Command;
+import app.bookmanagement.fieldValidation.commandImplementations.*;
+import app.bookmanagement.fieldValidation.validationResultSet.CommandResultSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -172,8 +173,10 @@ public class BookManagementController implements Initializable {
 
             db.add(book);
 
-            setCommand(new ClearFields(this));
-            executeCommand(command);
+            getTextTitle().clear();
+            getTextAuthor().clear();
+            getTextGenre().clear();
+            getTextYear().clear();
         }
         table.setItems(initialData());
     }
