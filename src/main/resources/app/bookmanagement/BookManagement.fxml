@@ -83,15 +83,16 @@
    <left>
       <VBox prefHeight="660.0" prefWidth="190.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox prefHeight="124.0" prefWidth="170.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="218.0" text="Regex search" />
+                  <Label prefHeight="30.0" prefWidth="218.0" text="Regex search" />
                   <TextField fx:id="textSearch" prefHeight="24.0" prefWidth="131.0" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="170.0" spacing="5.0">
                <children>
-                  <Label fx:id="errorDelete" prefHeight="16.0" prefWidth="198.0" />
+                  <Label prefHeight="26.0" prefWidth="205.0" text="Books in total:" />
+                  <Label fx:id="bookCount" prefHeight="36.0" prefWidth="170.0" />
                </children>
             </VBox>
          </children>

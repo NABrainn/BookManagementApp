@@ -5,6 +5,7 @@ import app.bookmanagement.database.databaseAccessObjectImplementation.BookDAO;
 import app.bookmanagement.fieldValidation.command.Command;
 import app.bookmanagement.fieldValidation.commandImplementations.*;
 import app.bookmanagement.fieldValidation.validationResultSet.CommandResultSet;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -63,6 +64,9 @@ public class BookManagementController implements Initializable {
 
     @FXML
     private Label errorYear;
+
+    @FXML
+    private Label bookCount;
 
     final private BookDAO db;
 
@@ -141,6 +145,11 @@ public class BookManagementController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        try {
+            bookCount.setText(String.valueOf(db.findAll().size()));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void btnAdd() throws SQLException {
@@ -172,6 +181,7 @@ public class BookManagementController implements Initializable {
             book.setYear(Integer.parseInt(textYear.getText().trim()));
 
             db.add(book);
+            bookCount.setText(String.valueOf(db.findAll().size()));
 
             getTextTitle().clear();
             getTextAuthor().clear();
@@ -187,6 +197,8 @@ public class BookManagementController implements Initializable {
             db.delete(book.getTitle());
         }
         table.setItems(initialData());
+        bookCount.setText(String.valueOf(db.findAll().size()));
+
     }
 
     public void regexSearch() throws SQLException {
