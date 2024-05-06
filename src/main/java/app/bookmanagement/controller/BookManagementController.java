@@ -2,7 +2,7 @@ package app.bookmanagement.controller;
 
 import app.bookmanagement.beans.Book;
 import app.bookmanagement.database.databaseAccessObjectImplementation.BookDAO;
-import app.bookmanagement.validationResultList.CommandResultList;
+import app.bookmanagement.validationResultSet.CommandResultSet;
 import app.bookmanagement.fieldCommands.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -144,7 +144,7 @@ public class BookManagementController implements Initializable {
 
     public void btnAdd() throws SQLException {
         Book book = new Book();
-        CommandResultList results = new CommandResultList();
+        CommandResultSet results = new CommandResultSet();
 
         setCommand(new ValidateTitle(book, this));
         executeCommand(command);

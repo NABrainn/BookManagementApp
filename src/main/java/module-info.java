@@ -15,8 +15,8 @@ module app.bookmanagement {
     opens app.bookmanagement.database.databaseAccessObjectImplementation to javafx.fxml;
     exports app.bookmanagement.database.databaseConnectionSingleton;
     opens app.bookmanagement.database.databaseConnectionSingleton to javafx.fxml;
-    exports app.bookmanagement.validationResultList;
-    opens app.bookmanagement.validationResultList to javafx.fxml;
+    exports app.bookmanagement.validationResultSet;
+    opens app.bookmanagement.validationResultSet to javafx.fxml;
     exports app.bookmanagement.beans;
     opens app.bookmanagement.beans to javafx.fxml;
 }

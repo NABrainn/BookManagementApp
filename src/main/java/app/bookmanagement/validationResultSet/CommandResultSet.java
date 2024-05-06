@@ -1,12 +1,12 @@
-package app.bookmanagement.validationResultList;
+package app.bookmanagement.validationResultSet;
 
 import java.util.*;
 
-public class CommandResultList {
+public class CommandResultSet {
 
     private Set<Boolean> results;
 
-    public CommandResultList() {
+    public CommandResultSet() {
         this.results = new HashSet<>();
     }
 
