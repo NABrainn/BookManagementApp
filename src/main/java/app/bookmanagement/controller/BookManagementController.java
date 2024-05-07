@@ -5,7 +5,6 @@ import app.bookmanagement.database.databaseAccessObjectImplementation.BookDAO;
 import app.bookmanagement.fieldValidation.command.Command;
 import app.bookmanagement.fieldValidation.commandImplementations.*;
 import app.bookmanagement.fieldValidation.validationResultSet.CommandResultSet;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -113,6 +112,7 @@ public class BookManagementController implements Initializable {
         return errorYear;
     }
 
+
     public void setCommand(Command command) {
         this.command = command;
     }
@@ -121,9 +121,10 @@ public class BookManagementController implements Initializable {
         command.execute();
     }
 
-    ObservableList<Book> initialData() throws SQLException {
+    ObservableList<Book> tableData() throws SQLException {
         return FXCollections.observableArrayList(db.findAll());
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -133,23 +134,19 @@ public class BookManagementController implements Initializable {
         year.setCellValueFactory(new PropertyValueFactory<>("year"));
 
         try {
-            table.setItems(initialData());
+            table.setItems(tableData());
+            bookCount.setText(String.valueOf(db.findAll().size()));
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         textSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
-                regexSearch();
+                regexSearchTitle();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
-        try {
-            bookCount.setText(String.valueOf(db.findAll().size()));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void btnAdd() throws SQLException {
@@ -181,6 +178,7 @@ public class BookManagementController implements Initializable {
             book.setYear(Integer.parseInt(textYear.getText().trim()));
 
             db.add(book);
+            table.setItems(tableData());
             bookCount.setText(String.valueOf(db.findAll().size()));
 
             getTextTitle().clear();
@@ -188,20 +186,18 @@ public class BookManagementController implements Initializable {
             getTextGenre().clear();
             getTextYear().clear();
         }
-        table.setItems(initialData());
     }
 
     public void delBtn() throws SQLException {
         Book book = table.getSelectionModel().getSelectedItem();
         if(book != null) {
             db.delete(book.getTitle());
+            table.setItems(tableData());
+            bookCount.setText(String.valueOf(db.findAll().size()));
         }
-        table.setItems(initialData());
-        bookCount.setText(String.valueOf(db.findAll().size()));
-
     }
 
-    public void regexSearch() throws SQLException {
+    public void regexSearchTitle() throws SQLException {
         ObservableList<Book> ls = db.findAll().stream()
                 .filter(book -> {
                     Pattern pt = Pattern.compile(textSearch.getText());
