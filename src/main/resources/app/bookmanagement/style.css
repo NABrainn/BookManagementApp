@@ -45,6 +45,10 @@
     -fx-background-color: #bef264;
 }
 
+#errorTitle, #errorAuthor, #errorGenre, #errorYear {
+    -fx-text-fill: "red";
+}
+
 
 
 
