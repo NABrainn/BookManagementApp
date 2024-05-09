@@ -41,7 +41,7 @@ public class BookDAO implements DAO<Book> {
     }
 
     @Override
-    public List<Book> findAll() throws SQLException {
+    public List<Book> bookList() throws SQLException {
         String query = "select * from books";
         PreparedStatement ps = con.prepareStatement(query);
         ResultSet rs = ps.executeQuery();

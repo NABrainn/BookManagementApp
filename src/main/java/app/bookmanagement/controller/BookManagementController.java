@@ -122,7 +122,7 @@ public class BookManagementController implements Initializable {
     }
 
     ObservableList<Book> tableData() throws SQLException {
-        return FXCollections.observableArrayList(db.findAll());
+        return FXCollections.observableArrayList(db.bookList());
     }
 
 
@@ -135,7 +135,7 @@ public class BookManagementController implements Initializable {
 
         try {
             table.setItems(tableData());
-            bookCount.setText(String.valueOf(db.findAll().size()));
+            bookCount.setText(String.valueOf(db.bookList().size()));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -179,7 +179,7 @@ public class BookManagementController implements Initializable {
 
             db.add(book);
             table.setItems(tableData());
-            bookCount.setText(String.valueOf(db.findAll().size()));
+            bookCount.setText(String.valueOf(db.bookList().size()));
 
             getTextTitle().clear();
             getTextAuthor().clear();
@@ -193,12 +193,12 @@ public class BookManagementController implements Initializable {
         if(book != null) {
             db.delete(book.getTitle());
             table.setItems(tableData());
-            bookCount.setText(String.valueOf(db.findAll().size()));
+            bookCount.setText(String.valueOf(db.bookList().size()));
         }
     }
 
     public void regexSearchTitle() throws SQLException {
-        ObservableList<Book> ls = db.findAll().stream()
+        ObservableList<Book> ls = db.bookList().stream()
                 .filter(book -> {
                     Pattern pt = Pattern.compile(textSearch.getText());
                     String candidate = book.getTitle();
