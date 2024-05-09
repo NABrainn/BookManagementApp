@@ -83,7 +83,7 @@
    <left>
       <VBox prefHeight="660.0" prefWidth="190.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="124.0" prefWidth="170.0" spacing="10.0">
+            <VBox prefHeight="76.0" prefWidth="170.0" spacing="10.0">
                <children>
                   <Label prefHeight="30.0" prefWidth="218.0" text="Regex search" />
                   <TextField fx:id="textSearch" prefHeight="24.0" prefWidth="131.0" />
@@ -92,7 +92,7 @@
             <HBox prefHeight="45.0" prefWidth="170.0">
                <children>
                   <Label prefHeight="30.0" prefWidth="97.0" text="Books in total:" />
-                  <Label fx:id="bookCount" prefHeight="30.0" prefWidth="73.0" />
+                  <Label fx:id="bookCount" alignment="BASELINE_LEFT" prefHeight="30.0" prefWidth="74.0" />
                </children>
             </HBox>
          </children>
