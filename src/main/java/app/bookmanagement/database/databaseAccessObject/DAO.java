@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface DAO<T> {
     T findByTitle(String title) throws SQLException;
-    List<T> findAll() throws SQLException;
+    List<T> bookList() throws SQLException;
     void add(T t) throws SQLException;
     void update(T t) throws SQLException;
     void delete(String title) throws SQLException;
