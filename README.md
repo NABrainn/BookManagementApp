@@ -48,4 +48,4 @@ Uruchomienie z terminala polecenia "mvn --version" powinno zwrócić wersję Mav
 4. W terminalu użyć polecenia "git clone git@github.com:NABrainn/BookManagementApp.git", a następnie przenieść się do sklonowanego repozytorium.
 5. Poleceniem "mvn clean javafx:run" uruchomić aplikację.
 
-**Realizacja punktów 1. - 3. będzie wyglądać inaczej na różnych systemach operacyjnych.
+**Realizacja punktów 1. - 3. będzie wyglądać inaczej na różnych systemach operacyjnych. W powyższej instrukcji została opisany proces instalacji w systemie Windows 11.
