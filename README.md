@@ -3,11 +3,11 @@
 
 ### Spis treści
 
-1. Wstęp
-2. Zaimplementowane funkcjonalności
-3. Wymagania
-4. Biblioteki
-5. Uruchamianie aplikacji
+1. [Wstęp](#1-wstęp)
+2. [Zaimplementowane funkcjonalności](#2-zaimplementowane-funkcjonalności)
+3. [Wymagania](#3-wymagania)
+4. [Biblioteki](#4-biblioteki)
+5. [Instalacja i uruchomienie](#5-instalacja-i-uruchomienie)
 
 ## 1. Wstęp
 
@@ -26,6 +26,7 @@ Aplikacja "Zarządzanie książkami" umożliwia użytkownikowi stworzyć własn�
 * Java (JDK 21+)
 * Git
 * Maven 3.9.6
+
 
 ## 4. Biblioteki
 
