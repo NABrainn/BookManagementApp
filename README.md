@@ -37,14 +37,14 @@ Aplikacja "Zarządzanie książkami" umożliwia użytkownikowi stworzyć własn�
 
 Aby zainstalować i uruchomić aplikację należy zrealizować następujące kroki:
 1. Pobrać i zainstalować Git https://git-scm.com/downloads.
-Po instalacji należy ustawić dwie zmienne środowiskowe PATH tak, aby wskazywały na miejsce instalacji git z folderem bin oraz z folderem cmd.
-Uruchomienie z terminala polecenia "git --version" powinno zwrócić wersję Git-a.
-2. Pobrać i zainstalować Java oraz JDK (21+) https://www.oracle.com/pl/java/technologies/downloads/. 
-Po instalacji należy ustawić zmienną środowiskową PATH tak, aby wskazywała na miejsce instalacji jdk z folderem bin.
-Uruchomienie z terminala polecenia "java --version" powinno zwrócić wersję Jav-y.
-3. Pobrać i zainstalować Maven w wersji 3.9.6 https://maven.apache.org/docs/3.9.6/release-notes.html. 
-Podobnie jak przy JDK również tutaj należy skonfigurować zmienną środowiskową PATH, aby wskazywała na miejsce instalacji maven z folderem bin.
-Uruchomienie z terminala polecenia "mvn --version" powinno zwrócić wersję Maven.
+   Po instalacji należy ustawić dwie zmienne środowiskowe PATH tak, aby wskazywały na miejsce instalacji git z folderem bin oraz z folderem cmd.
+   Uruchomienie z terminala polecenia "git --version" powinno zwrócić wersję Git-a.
+2. Pobrać i zainstalować Java oraz JDK (21+) https://www.oracle.com/pl/java/technologies/downloads/.
+   Po instalacji należy ustawić zmienną środowiskową PATH tak, aby wskazywała na miejsce instalacji jdk z folderem bin oraz JAVA_HOME na miejsce instalacji jdk.
+   Uruchomienie z terminala polecenia "java --version" powinno zwrócić wersję Jav-y.
+3. Pobrać i zainstalować Maven w wersji 3.9.6 https://maven.apache.org/docs/3.9.6/release-notes.html.
+   Podobnie jak przy JDK również tutaj należy skonfigurować zmienną środowiskową PATH, aby wskazywała na miejsce instalacji maven z folderem bin.
+   Uruchomienie z terminala polecenia "mvn --version" powinno zwrócić wersję Maven.
 4. W terminalu użyć polecenia "git clone git@github.com:NABrainn/BookManagementApp.git", a następnie przenieść się do sklonowanego repozytorium.
 5. Poleceniem "mvn clean javafx:run" uruchomić aplikację.
 

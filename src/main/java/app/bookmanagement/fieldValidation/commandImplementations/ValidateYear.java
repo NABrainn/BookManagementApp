@@ -21,8 +21,8 @@ public class ValidateYear implements Command {
         if(controller.getTextYear().getText().isEmpty()) {
             controller.getErrorYear().setText("Empty field.");
         }
-        else if(!controller.getTextYear().getText().matches("[0-9]+")) {
-            controller.getErrorYear().setText("Not an int.");
+        else if(!controller.getTextYear().getText().matches("[0-9]+") || (controller.getTextYear().getText().startsWith("0") && controller.getTextYear().getText().length() >= 2)) {
+            controller.getErrorYear().setText("Not a valid int.");
         }
         else {
             result = true;
