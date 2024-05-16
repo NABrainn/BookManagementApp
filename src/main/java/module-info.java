@@ -1,7 +1,10 @@
 module app.bookmanagement {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.base;
+    requires java.desktop;
 
 
     opens app.bookmanagement to javafx.fxml;
