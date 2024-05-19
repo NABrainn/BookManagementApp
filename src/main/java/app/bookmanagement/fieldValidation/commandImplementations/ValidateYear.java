@@ -1,7 +1,6 @@
 package app.bookmanagement.fieldValidation.commandImplementations;
 
 import app.bookmanagement.controller.BookManagementController;
-import app.bookmanagement.beans.Book;
 import app.bookmanagement.fieldValidation.command.Command;
 
 public class ValidateYear implements Command {

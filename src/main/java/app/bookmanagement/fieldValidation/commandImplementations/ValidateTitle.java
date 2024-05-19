@@ -24,7 +24,6 @@ public class ValidateTitle implements Command {
                 .toList().contains(controller.getTextTitle().getText()))
         {
             controller.getErrorTitle().setText("Duplicate title.");
-
         }
         else {
             result = true;

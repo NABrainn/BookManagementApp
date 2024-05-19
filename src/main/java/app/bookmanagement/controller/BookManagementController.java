@@ -153,20 +153,20 @@ public class BookManagementController implements Initializable {
         Book book = new Book();
         CommandResultSet results = new CommandResultSet();
 
-        setCommand(new ValidateTitle(book, this));
+        setCommand(new ValidateTitle(this));
         executeCommand(command);
         results.add(command.getResult());
 
 
-        setCommand(new ValidateAuthor(book, this));
+        setCommand(new ValidateAuthor(this));
         executeCommand(command);
         results.add(command.getResult());
 
-        setCommand(new ValidateGenre(book, this));
+        setCommand(new ValidateGenre(this));
         executeCommand(command);
         results.add(command.getResult());
 
-        setCommand(new ValidateYear(book, this));
+        setCommand(new ValidateYear(this));
         executeCommand(command);
         results.add(command.getResult());
 
