@@ -25,22 +25,22 @@ Aplikacja "Zarządzanie książkami" umożliwia użytkownikowi stworzyć własn�
 
 * Java (JDK 21+)
 * Git
+* JavaFX SDK
 
 ## 4. Biblioteki
 
 * JavaFX
-* sqlite-jdbc 3.45.3.0
+* SQLite JDBC
 
 ## 5. Instalacja i uruchomienie
 
-Aby zainstalować i uruchomić aplikację należy zrealizować następujące kroki:
 1. Pobrać i zainstalować Git https://git-scm.com/downloads.
    Uruchomienie z terminala polecenia "git --version" powinno zwrócić wersję Git-a.
 2. Pobrać i zainstalować Java oraz JDK (21+) https://www.oracle.com/pl/java/technologies/downloads/.
    Uruchomienie z terminala polecenia "java --version" powinno zwrócić wersję Jav-y.
-3. Pobrać JavaFX SDK ze strony https://gluonhq.com/products/javafx/
-4. W terminalu użyć polecenia "git clone git@github.com:NABrainn/BookManagementApp.git", a następnie przenieść się do sklonowanego repozytorium.
+3. Pobrać JavaFX SDK 22.0.1 ze strony https://gluonhq.com/products/javafx/
+4. W terminalu użyć polecenia "git clone `git@github.com:NABrainn/BookManagementApp.git`", a następnie przenieść się do sklonowanego repozytorium.
 5. Poleceniem</br>
    * Linux/MacOS: "java --module-path /path/to/javafx-sdk-22.0.1/lib --add-modules javafx.controls,javafx.fxml -jar '/path/to/BookManagement.jar'"</br></br>
    * Windows: "java --module-path "\path\to\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar '\path\to\BookManagement.jar'" </br></br>
-     uruchomić aplikację.
+     uruchomić aplikację. Plik .jar znajduje się w strukturze 'out'.
