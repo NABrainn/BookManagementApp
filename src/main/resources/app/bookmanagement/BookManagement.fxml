@@ -32,28 +32,28 @@
                            <children>
                               <Label text="Title" />
                               <TextField fx:id="textTitle" />
-                              <Label fx:id="errorTitle" prefHeight="16.0" prefWidth="101.0" />
+                              <Label fx:id="errorTitle" prefHeight="16.0" prefWidth="137.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Author" />
                               <TextField fx:id="textAuthor" />
-                              <Label fx:id="errorAuthor" prefHeight="16.0" prefWidth="101.0" />
+                              <Label fx:id="errorAuthor" prefHeight="16.0" prefWidth="139.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Genre" />
                               <TextField fx:id="textGenre" />
-                              <Label fx:id="errorGenre" prefHeight="16.0" prefWidth="101.0" />
+                              <Label fx:id="errorGenre" prefHeight="16.0" prefWidth="134.0" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <Label text="Year" />
                               <TextField fx:id="textYear" />
-                              <Label fx:id="errorYear" prefHeight="16.0" prefWidth="101.0" />
+                              <Label fx:id="errorYear" prefHeight="16.0" prefWidth="148.0" />
                            </children>
                         </VBox>
                         <Button fx:id="addBtn" minWidth="50.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="20.0" prefWidth="50.0" text="Add" />
