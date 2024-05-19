@@ -20,6 +20,9 @@ public class ValidateGenre implements Command {
         if(controller.getTextGenre().getText().isEmpty()) {
             controller.getErrorGenre().setText("Empty field.");
         }
+        else if(!controller.getTextGenre().getText().matches("[a-zA-Z]+")) {
+            controller.getErrorGenre().setText("Use letters only.");
+        }
         else {
             result = true;
         }

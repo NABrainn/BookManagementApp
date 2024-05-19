@@ -18,6 +18,9 @@ public class ValidateAuthor implements Command {
         if(controller.getTextAuthor().getText().isEmpty()) {
             controller.getErrorAuthor().setText("Empty field.");
         }
+        else if(!controller.getTextAuthor().getText().matches("\\D+")) {
+            controller.getErrorAuthor().setText("Digit not expected.");
+        }
         else {
             result = true;
         }
