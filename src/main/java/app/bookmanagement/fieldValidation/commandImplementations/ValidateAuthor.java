@@ -6,12 +6,10 @@ import app.bookmanagement.fieldValidation.command.Command;
 
 public class ValidateAuthor implements Command {
 
-    private Book book;
     private BookManagementController controller;
     private boolean result = false;
 
-    public ValidateAuthor(Book book, BookManagementController controller) {
-        this.book = book;
+    public ValidateAuthor(BookManagementController controller) {
         this.controller = controller;
     }
 
