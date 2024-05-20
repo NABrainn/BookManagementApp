@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 
 public class BookManagementController implements Initializable {
 
-
     @FXML
     private TableColumn<Book, String> author;
 
@@ -112,20 +111,22 @@ public class BookManagementController implements Initializable {
         return errorYear;
     }
 
-
+    //sets the command to execute
     public void setCommand(Command command) {
         this.command = command;
     }
 
+    //executes set command
     public void executeCommand(Command command) {
         command.execute();
     }
 
+    //renders all books from database as ObservableList
     ObservableList<Book> tableData() throws SQLException {
         return FXCollections.observableArrayList(db.bookList());
     }
 
-
+    //initial data on application launch
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -149,6 +150,9 @@ public class BookManagementController implements Initializable {
         });
     }
 
+    //validates the fields via commands
+    //if resultSet is true a book is added and count updated
+    //else error messeges are presented
     public void btnAdd() throws SQLException {
         Book book = new Book();
         CommandResultSet results = new CommandResultSet();
@@ -188,6 +192,7 @@ public class BookManagementController implements Initializable {
         }
     }
 
+    //deletes book selected in the table
     public void delBtn() throws SQLException {
         Book book = table.getSelectionModel().getSelectedItem();
         if(book != null) {
@@ -197,6 +202,7 @@ public class BookManagementController implements Initializable {
         }
     }
 
+    //renders only those books that match regex expression
     public void regexSearchTitle() throws SQLException {
         ObservableList<Book> ls = db.bookList().stream()
                 .filter(book -> {
