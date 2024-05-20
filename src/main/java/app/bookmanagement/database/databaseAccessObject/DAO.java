@@ -3,6 +3,7 @@ package app.bookmanagement.database.databaseAccessObject;
 import java.sql.SQLException;
 import java.util.List;
 
+//interface for CRUD operations on database
 public interface DAO<T> {
     T findByTitle(String title) throws SQLException;
     List<T> bookList() throws SQLException;
