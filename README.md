@@ -39,8 +39,8 @@ Aplikacja "Zarządzanie książkami" umożliwia użytkownikowi stworzyć własn�
 2. Pobrać i zainstalować Java oraz JDK (21+) https://www.oracle.com/pl/java/technologies/downloads/.
    Uruchomienie z terminala polecenia "java --version" powinno zwrócić wersję Jav-y.
 3. Pobrać JavaFX SDK 22.0.1 ze strony https://gluonhq.com/products/javafx/
-4. W terminalu użyć polecenia "git clone `git@github.com:NABrainn/BookManagementApp.git`", a następnie przenieść się do sklonowanego repozytorium.
+4. W terminalu użyć polecenia "`git clone git@github.com:NABrainn/BookManagementApp.git`", a następnie przenieść się do sklonowanego repozytorium używając polecenia `cd`.
 5. Poleceniem</br>
-   * Linux/MacOS: "java --module-path /path/to/javafx-sdk-22.0.1/lib --add-modules javafx.controls,javafx.fxml -jar '/path/to/BookManagement.jar'"</br></br>
-   * Windows: "java --module-path "\path\to\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar '\path\to\BookManagement.jar'" </br></br>
-     uruchomić aplikację. Plik .jar znajduje się w strukturze 'out'.
+    * Linux/MacOS: "`java --module-path /path/to/javafx-sdk-22.0.1/lib --add-modules javafx.controls,javafx.fxml -jar '/path/to/BookManagement.jar'`"</br></br>
+    * Windows: "`java --module-path "\path\to\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar '\path\to\BookManagement.jar'`" </br></br>
+      uruchomić aplikację. Plik .jar znajduje się w strukturze 'out'.
