@@ -20,8 +20,8 @@ public class ValidateTitle implements Command {
             controller.getErrorTitle().setText("Empty field.");
         }
         else if(controller.getTable().getItems().stream()
-                .map(Book::getTitle)
-                .toList().contains(controller.getTextTitle().getText()))
+                .map(book -> book.getTitle().toLowerCase())
+                .toList().contains(controller.getTextTitle().getText().toLowerCase()))
         {
             controller.getErrorTitle().setText("Duplicate title.");
         }
